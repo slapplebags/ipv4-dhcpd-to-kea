@@ -125,7 +125,7 @@ def insert_leases_to_db(leases, dry_run=False, debug=False):
 
         for lease in leases:
             if debug:
-                print("Error occured at the following lease:", lease)  # Debug output
+                print(lease)  # Debug output
             lease['dhcp_identifier'] = mac_to_bytea(lease['dhcp_identifier'])  # Convert MAC address to binary before insertion
             cursor.execute(insert_query, (
                 lease['dhcp_identifier'],
